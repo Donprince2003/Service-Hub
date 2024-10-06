@@ -1,0 +1,259 @@
+body {
+    background-color: #a9d6e5;
+}
+
+.centerbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+
+    width: 500px;
+    margin: 100px auto;
+    padding: 2px;
+    background-color: #0E6BA8;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.homecontainer {
+    min-height: 100px;
+    display: flex;
+    gap: 2px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.homebox {
+
+    width: 250px;
+    margin: 25px auto;
+    padding: 2px;
+    background-color: #0E6BA8;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.logincontainer,
+.regcontainer {
+
+    width: 500px;
+    margin: 100px auto;
+    padding: 2px;
+    background-color: #0E6BA8;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(10, 10, 1, 10);
+}
+
+.loginbox,
+.regbox,
+.updatebox {
+    width: 250px;
+    margin: 25px auto;
+    padding: 2px;
+    background-color: #0E6BA8;
+    border-radius: 8px;
+}
+
+.jobcontainer {
+    min-height: 100px;
+
+
+}
+
+.jobbox {
+
+    width: 75%;
+    margin: 25px auto;
+    padding: 2px;
+    background-color: #0E6BA8;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+.grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.col {
+    flex: 1;
+    padding: 10px;
+}
+
+.waiting-box {
+    background-color: #f1d900;
+    color: rgb(0, 0, 0);
+    border-radius: 7%;
+
+}
+
+.declined-box {
+    background-color: #f02400;
+    color: white;
+    border-radius: 7%;
+
+}
+
+.accepted-box {
+    background-color: #00f020;
+    color: black;
+    border-radius: 7%;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+}
+
+
+
+.homeimg {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: 3px solid #2a6f97;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #007fd3;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0090f0;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button,
+.greenbutton {
+    width: 100%;
+    padding: 12px;
+    background-color: #00f020;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.redbutton {
+    width: 100%;
+    padding: 12px;
+    background-color: #f02400;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.updatebutton {
+    width: 100%;
+    padding: 12px;
+    background-color: #007fd3;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+button,
+.greenbutton:hover {
+    background-color: #00f094;
+}
+
+.redbutton:hover {
+    background-color: #f0005c;
+
+}
+
+h1 {
+    color: #A6E1FA;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+p,
+label {
+    color: #ddd;
+}
+
+a {
+    color: #000000;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+a:visited {
+    color: #3d3d3d;
+}
+
+a:active {
+    color: #948384;
+}
+
+.navbar-custom {
+    background-color: #001C55;
+    /* Light gray background */
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+    color: #A6E1FA;
+    /* Black text */
+}
+
+.navbar-custom .nav-link:hover {
+    color: white;
+    /* Darker hover color */
+}
+
+.navbar-custom .form-control {
+    border-color: #0A2472;
+    /* Green border on input */
+}
+
+.navbar-custom .btn {
+    color: #A6E1FA;
+    /* Green text on search button */
+    border-color: #A6E1FA;
+    /* Green border */
+}
+
+/* ---------------------------------------------------------- */
