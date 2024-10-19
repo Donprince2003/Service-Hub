@@ -32,7 +32,7 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     $img_data = mysqli_fetch_assoc($result);
     $user_img = "image/" . $img_data['img_id'];
-} 
+}
 if ($user_role == "user") {
 ?>
     <html>
@@ -60,6 +60,9 @@ if ($user_role == "user") {
             <div>
                 <a href="update.php"><input type="submit" name="update" value="Update User Data"></a>
             </div>
+            <div>
+                <a href="changepassword.php"><input type="submit" name="changepassword" value="Change Password"></a>
+            </div>
 
         </div>
 
@@ -80,7 +83,7 @@ if ($user_role == "user") {
 
         <div class="container">
             <div class="centerbox">
-            <img src="<?php echo $user_img; ?>" alt="profile pic"><br><br>
+                <img src="<?php echo $user_img; ?>" alt="profile pic"><br><br>
             </div>
             <p>
                 <!-- Dynamically display user information -->
@@ -127,7 +130,7 @@ if ($user_role == "user") {
 
         <div class="container">
             <div class="centerbox">
-            <img src="<?php echo $user_img; ?>" alt="profile pic"><br><br>
+                <img src="<?php echo $user_img; ?>" alt="profile pic"><br><br>
             </div>
             <p>
                 <!-- Dynamically display user information -->
@@ -141,6 +144,9 @@ if ($user_role == "user") {
             </p>
             <div>
                 <a href="update.php"><input type="submit" name="update" value="Update User Data"></a>
+            </div>
+            <div>
+                <a href="changepassword.php"><input type="submit" name="changepassword" value="Change Password"></a>
             </div>
 
         </div>

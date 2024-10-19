@@ -54,6 +54,24 @@ if ($result && mysqli_num_rows($result) > 0) {
 <head>
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Edit Profile</title>
+    <script>
+        // Function to show/hide worker fields
+        function toggleWorkerFields() {
+            var roleSelect = document.getElementById("role");
+            var workerFields = document.getElementById("worker-fields");
+            
+            if (roleSelect.value === "worker") {
+                workerFields.style.display = "block";  // Show worker fields
+            } else {
+                workerFields.style.display = "none";  // Hide worker fields
+            }
+        }
+
+        // Run this function when the page loads to set the correct state
+        window.onload = function() {
+            toggleWorkerFields();  // Ensure the correct fields are shown when the page loads
+        };
+    </script>
 </head>
 <body>
     <div class="container">
@@ -74,12 +92,12 @@ if ($result && mysqli_num_rows($result) > 0) {
             <input type="text" id="contact" name="contact" value="<?php echo htmlspecialchars($user_contact); ?>" required maxlength="10"><br><br>
 
             <label for="role">Role:</label>
-            <select id="role" name="role" required>
+            <select id="role" name="role" required onchange="toggleWorkerFields()">
                 <option value="user" <?php if ($user_role == 'user') echo 'selected'; ?>>User</option>
                 <option value="worker" <?php if ($user_role == 'worker') echo 'selected'; ?>>Worker</option>
             </select><br><br>
 
-            <?php if ($user_role == 'worker') : ?>
+            <div id="worker-fields" style="display:none;">
                 <label for="job">Job:</label>
                 <select id="job" name="job" required>
                     <?php foreach ($blue_collar_jobs as $job) : ?>
@@ -89,13 +107,15 @@ if ($result && mysqli_num_rows($result) > 0) {
 
                 <label for="exp">Experience (in years):</label>
                 <input type="number" id="exp" name="exp" value="<?php echo htmlspecialchars($worker_exp); ?>" min="0"><br><br>
-            <?php endif; ?>
-            <input type="submit"  value="Update Profile">
+            </div>
+
+            <input type="submit" value="Update Profile">
         </form>
         <a href="profile.php">Back to Profile</a>
     </div>
 </body>
 </html>
+
 <?php
 } else {
     echo "<script>alert('User not found!'); window.location.href = 'login.php';</script>";

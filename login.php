@@ -63,7 +63,8 @@ if (isset($_POST['submit'])) {
         <input type="submit" name="submit" value="Login">
         </form>
         <div>
-            <p>If you have not Registered <a href="reg.php">click here.</a></p>.
+            <p>If you have not Registered <a href="reg.php">click here.</a><br>
+            If you have forgot your password <a href="s-check.php">click here.</a></p>.
         </div>
     </div>
 </body>

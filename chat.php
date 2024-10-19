@@ -1,7 +1,6 @@
 <?php
 session_start();
 include("conn.php");
-include("index2.php");
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
