@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && isset($_P
     $job_user = $_POST['job_user'];
 
     if ($action == "confirm") {
-        $message= "your jobe have been accepted";
+        $message= "your job have been accepted";
 
         $sql = "INSERT INTO chat_tab (sender, receiver, message) VALUES ('$worker_id','$job_user', '$message')";
         mysqli_query($conn, $sql);
@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && isset($_P
         }
     } elseif ($action == "decline") {
 
-        $message= "your jobe have been declined";
+        $message= "your job have been declined";
 
         $sql = "INSERT INTO chat_tab (sender, receiver, message) VALUES ('$worker_id','$job_user', '$message')";
         mysqli_query($conn, $sql);

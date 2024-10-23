@@ -64,12 +64,25 @@ if ($stmt->affected_rows === 0) {
 }
 
 // Show success message and redirect after a few seconds
-echo "<p>Password updated successfully. You will be redirected to the login page in 3 seconds...</p>";
-echo '<script>
+echo "";
+echo '<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Success</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="log">
+<h1>Password updated successfully!</h1>
+<p> You will be redirected to the login page in 3 seconds...</p>
+    <script>
     setTimeout(function() {
         window.location.href = "/mini2/login.php";
     }, 3000); // Redirect after 3 seconds
-</script>';
+</script>
+</div>
+</body>
+</html';
 
 exit;
 

@@ -15,8 +15,8 @@ if (isset($_POST['submit'])) {
 
     if ($result->num_rows > 0) {
         $row = mysqli_fetch_assoc($result);
-        $user_qus = $row['sec-qus'];
-        $user_ans = $row['sec-ans'];
+        $user_qus = $row['sec_qus'];
+        $user_ans = $row['sec_ans'];
         if ($sec_qus == $user_qus && $sec_ans == $user_ans) {
             header("Location: s-check3.php?username=" . urlencode($username));
             exit();

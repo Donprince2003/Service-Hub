@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
       $update_sql = "UPDATE user_tab SET user_status = 1 WHERE user_id = '$username'";
       $result = mysqli_query($conn, $update_sql);
 
-      header("Location: profile.php");
+      header("Location: home.php");
     } else {
       echo "<script>alert('wrong password!');</script>";
     }

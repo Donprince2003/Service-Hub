@@ -64,6 +64,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['user_worker_id'])) {
             $worker_id = $worker_data['worker_id'];
             $worker_job = $worker_data['worker_job_field'];
             $worker_exp = $worker_data['worker_experience'];
+            $hour_rate = $worker_data['hour_rate'];
+
 ?>
             <!DOCTYPE html>
             <html lang="en">
@@ -88,6 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['user_worker_id'])) {
                     <p><strong>Worker ID:</strong> <?php echo htmlspecialchars($worker_id); ?></p>
                     <p><strong>Job:</strong> <?php echo htmlspecialchars($worker_job); ?></p>
                     <p><strong>Work Experience:</strong> <?php echo htmlspecialchars($worker_exp); ?></p>
+                    <p><strong> Hourly rate:</strong> <?php echo htmlspecialchars($hour_rate); ?> .Rs <br>
 
                     <form method="POST" action="add_job.php">
                         <label for="job_date">Job Date:</label>

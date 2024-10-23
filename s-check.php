@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
        </a>
        <br>
        <a href="s-check1.php">
-       <input type="submit" name="email" value="security queistin">
+       <input type="submit" name="email" value="security question">
        </a>
 <br><br>
     </div>

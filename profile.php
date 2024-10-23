@@ -118,6 +118,8 @@ if ($user_role == "user") {
 
     $worker_job = $worker_data['worker_job_field'];
     $worker_exp = $worker_data['worker_experience'];
+    $hour_rate = $worker_data['hour_rate'];
+
 ?>
     <html>
 
@@ -141,6 +143,8 @@ if ($user_role == "user") {
                 Role: <?php echo htmlspecialchars($user_role); ?> <br>
                 Job: <?php echo htmlspecialchars($worker_job); ?> <br>
                 Work Experience: <?php echo htmlspecialchars($worker_exp); ?> years <br>
+                Hourly rate: <?php echo htmlspecialchars($hour_rate); ?> .Rs <br>
+
             </p>
             <div>
                 <a href="update.php"><input type="submit" name="update" value="Update User Data"></a>
