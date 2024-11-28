@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_gender = mysqli_real_escape_string($conn, $_POST['gender']);
     $user_address = mysqli_real_escape_string($conn, $_POST['address']);
     $user_contact = mysqli_real_escape_string($conn, $_POST['contact']);
-    $sec_qus = mysqli_real_escape_string($conn, $_POST['sec-qus']);
+    $sec_qus = mysqli_real_escape_string($conn, $_POST['sec_qus']);
     $sec_ans = mysqli_real_escape_string($conn, $_POST['sec-ans']);
 
     $errors = [];
@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->isHTML(true);
             $mail->Subject = 'Your OTP Code';
             $mail->Body    = "Your OTP is: <b>$otp</b>";
-            $mail->AltBody = "Your OTP is: $otp";
+           
 
             $mail->send();
             echo 'OTP has been sent to your email.';
@@ -155,7 +155,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="password" name="password_confirm" required><br><br>
 
                 <label>Security Question:</label>
-                <select id="sec-qus" name="sec-qus" required>
+                <select id="sec_qus" name="sec_qus" required>
                     <?php foreach ($security_questions as $question) : ?>
                         <option value="<?php echo htmlspecialchars($question); ?>"><?php echo htmlspecialchars($question); ?></option>
                     <?php endforeach; ?>

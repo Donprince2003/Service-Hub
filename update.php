@@ -201,6 +201,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = mysqli_query($conn, $update_sql);
 
     if ($new_role == "worker") {
+
+        $update_worker_sql = "INSERT INTO `log_tab`(`worker_id`, `old_job`, `new_job`) VALUES ('$user_id','$worker_job','$new_job')";
+        mysqli_query($conn, $update_worker_sql);
         $update_worker_sql = "UPDATE worker_tab SET worker_job_field = '$new_job', worker_experience = '$new_exp', hour_rate='$new_hour_rate' WHERE user_id = '$user_id'";
         $result_worker = mysqli_query($conn, $update_worker_sql);
     }

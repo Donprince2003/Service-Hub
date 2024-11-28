@@ -19,11 +19,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user_gender = mysqli_real_escape_string($conn, $user_data['gender']);
         $user_address = mysqli_real_escape_string($conn, $user_data['address']);
         $user_contact = mysqli_real_escape_string($conn, $user_data['contact']);
-        $sec_qus = mysqli_real_escape_string($conn, $user_data['sec-qus']);
-        $sec_ans = mysqli_real_escape_string($conn, $user_data['sec-ans']);
+        $sec_qus = mysqli_real_escape_string($conn, $user_data['sec_qus']);
+        $sec_ans = mysqli_real_escape_string($conn, $user_data['sec_ans']);
 
         // Insert the user's data into the database
-        $sql = "INSERT INTO user_tab (user_id, user_name, user_password, user_role, user_gender, user_address, user_contact, sec_qus, sec_sans) 
+        $sql = "INSERT INTO user_tab (user_id, user_name, user_password, user_role, user_gender, user_address, user_contact, sec_qus, sec_ans) 
                 VALUES ('$user_email', '$user_name', '$user_password', '$user_role', '$user_gender', '$user_address', '$user_contact', '$sec_qus', '$sec_ans')";
 
         if (mysqli_query($conn, $sql)) {
