@@ -32,7 +32,7 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     $img_data = mysqli_fetch_assoc($result);
     $user_img = "image/" . $img_data['img_id'];
-} 
+}
 if ($user_role == "user") {
 ?>
     <html>
@@ -60,6 +60,9 @@ if ($user_role == "user") {
             <div>
                 <a href="update.php"><input type="submit" name="update" value="Update User Data"></a>
             </div>
+            <div>
+                <a href="changepassword.php"><input type="submit" name="changepassword" value="Change Password"></a>
+            </div>
 
         </div>
 
@@ -80,7 +83,7 @@ if ($user_role == "user") {
 
         <div class="container">
             <div class="centerbox">
-            <img src="<?php echo $user_img; ?>" alt="profile pic"><br><br>
+                <img src="<?php echo $user_img; ?>" alt="profile pic"><br><br>
             </div>
             <p>
                 <!-- Dynamically display user information -->
@@ -115,6 +118,8 @@ if ($user_role == "user") {
 
     $worker_job = $worker_data['worker_job_field'];
     $worker_exp = $worker_data['worker_experience'];
+    $hour_rate = $worker_data['hour_rate'];
+
 ?>
     <html>
 
@@ -127,7 +132,7 @@ if ($user_role == "user") {
 
         <div class="container">
             <div class="centerbox">
-            <img src="<?php echo $user_img; ?>" alt="profile pic"><br><br>
+                <img src="<?php echo $user_img; ?>" alt="profile pic"><br><br>
             </div>
             <p>
                 <!-- Dynamically display user information -->
@@ -138,9 +143,14 @@ if ($user_role == "user") {
                 Role: <?php echo htmlspecialchars($user_role); ?> <br>
                 Job: <?php echo htmlspecialchars($worker_job); ?> <br>
                 Work Experience: <?php echo htmlspecialchars($worker_exp); ?> years <br>
+                Hourly rate: <?php echo htmlspecialchars($hour_rate); ?> .Rs <br>
+
             </p>
             <div>
                 <a href="update.php"><input type="submit" name="update" value="Update User Data"></a>
+            </div>
+            <div>
+                <a href="changepassword.php"><input type="submit" name="changepassword" value="Change Password"></a>
             </div>
 
         </div>

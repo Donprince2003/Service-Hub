@@ -51,6 +51,16 @@ body {
     box-shadow: 0 4px 12px rgba(10, 10, 1, 10);
 }
 
+.log{
+    width: 500px;
+    margin: 100px auto;
+    padding: 2px;
+    background-color: #0E6BA8;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(10, 10, 1, 10);
+}
+
 .loginbox,
 .regbox,
 .updatebox {
@@ -93,21 +103,65 @@ body {
 .waiting-box {
     background-color: #f1d900;
     color: rgb(0, 0, 0);
-    border-radius: 7%;
+    border-radius: 7px;
+    height: 35px;
+    display: flex;             
+    justify-content: center;     
+    align-items: center;  
 
 }
 
 .declined-box {
     background-color: #f02400;
     color: white;
-    border-radius: 7%;
+    border-radius: 7px;
+    height: 35px;
+    display: flex;             
+    justify-content: center;     
+    align-items: center;  
+
 
 }
 
 .accepted-box {
     background-color: #00f020;
     color: black;
-    border-radius: 7%;
+    border-radius: 7px;
+    height: 35px;
+    display: flex;             
+    justify-content: center;     
+    align-items: center;  
+}
+
+.paywaiting-box {
+    background-color: #ffe600;
+    color: black;
+    border-radius: 7px;
+    height: 35px;
+    display: flex;             
+    justify-content: center;     
+    align-items: center;  
+    
+}
+.waiting-box{
+    background-color: #ff8c00;
+    color: black;
+    border-radius: 7px;
+    height: 35px;
+    display: flex;             
+    justify-content: center;     
+    align-items: center;  
+    
+}
+
+.jobdone-box{
+    background-color: #b700cf;
+    color: white;
+    border-radius: 7px;
+    height: 35px;
+    display: flex;             
+    justify-content: center;     
+    align-items: center;  
 }
 
 img {
@@ -125,7 +179,7 @@ img {
     border-radius: 50%;
     border: 3px solid #2a6f97;
 }
-
+.submit,
 input[type="submit"] {
     width: 100%;
     padding: 12px;
@@ -143,6 +197,7 @@ input[type="submit"]:hover {
 }
 
 input[type="text"],
+input[type="number"],
 input[type="email"],
 input[type="password"] {
     width: 100%;
@@ -159,7 +214,7 @@ button,
     background-color: #00f020;
     border: none;
     border-radius: 5px;
-    color: white;
+    color: black;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -172,6 +227,18 @@ button,
     border: none;
     border-radius: 5px;
     color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.yellowbutton {
+    width: 100%;
+    padding: 12px;
+    background-color: #ffe600;
+    border: none;
+    border-radius: 5px;
+    color: black;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -199,6 +266,11 @@ button,
     background-color: #f0005c;
 
 }
+.yellowbutton:hover {
+    background-color: #f8ed87;
+
+}
+
 
 h1 {
     color: #A6E1FA;

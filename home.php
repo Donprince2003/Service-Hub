@@ -3,7 +3,7 @@ session_start();
 include("conn.php");
 include("index.php");
 
-$sql = "SELECT u.user_name, u.user_address, u.user_contact, w.worker_id, w.user_id, w.worker_job_field, w.worker_experience, w.worker_status, p.img_id 
+$sql = "SELECT u.user_name, u.user_address, u.user_contact, u.user_rating, w.worker_id, w.user_id, w.worker_job_field, w.worker_experience, w.worker_status, w.hour_rate, p.img_id 
         FROM user_tab u 
         LEFT JOIN worker_tab w ON u.user_id = w.user_id
         LEFT JOIN pro_img p ON u.user_id = p.user_id
@@ -15,7 +15,15 @@ $img_path = "image/d.png";
 
 <head>
     <title>home</title>
+    <style>
+        .checked {
+            color: orange;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" type="text/css" href="style.css">
+
 </head>
 
 <body>
@@ -37,6 +45,25 @@ $img_path = "image/d.png";
                             <p><strong>Mobile Number:</strong> <?php echo htmlspecialchars($worker['user_contact']); ?></p>
                             <p><strong>Job:</strong> <?php echo htmlspecialchars($worker['worker_job_field']); ?></p>
                             <p><strong>Experience (in years):</strong> <?php echo htmlspecialchars($worker['worker_experience']); ?></p>
+                            <p><strong>Hourly rate:</strong> <?php echo htmlspecialchars($worker['hour_rate']); ?>.Rs</p>
+
+                            <p>
+                                <?php
+
+                                $roundedRating = round($worker['user_rating']);
+
+                                for ($i = 1; $i <= 5; $i++) {
+                                    if ($i <= $roundedRating) {
+                                        echo "<span class='fa fa-star checked'></span>";
+                                    } else {
+                                        echo "<span class='fa fa-star'></span>";
+                                    }
+                                }
+
+
+                                echo htmlspecialchars(number_format($worker['user_rating'], 1)); ?>/5
+                            </p>
+
                         </div>
                         <div class="col">
                             <form method="POST" action="profile_vew.php">

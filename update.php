@@ -40,62 +40,107 @@ if ($result && mysqli_num_rows($result) > 0) {
         $worker_data = mysqli_fetch_assoc($res);
         $worker_job = $worker_data['worker_job_field'];
         $worker_exp = $worker_data['worker_experience'];
+        $hour_rate = $worker_data['hour_rate'];
 
         $blue_collar_jobs = [
-            "Electrician", "Plumber", "Carpenter", "Welder", "Mechanic",
-            "Construction Worker", "Truck Driver", "Painter", "Mason", "HVAC Technician",
-            "Landscaper", "Roofer", "Glazier", "Pest Control Worker", "Sheet Metal Worker",
-            "Insulation Worker", "Maintenance Worker", "Pipefitter", "Steelworker", "Assembler"
+            "Electrician",
+            "Plumber",
+            "Carpenter",
+            "Welder",
+            "Mechanic",
+            "Construction Worker",
+            "Truck Driver",
+            "Painter",
+            "Mason",
+            "HVAC Technician",
+            "Landscaper",
+            "Roofer",
+            "Glazier",
+            "Pest Control Worker",
+            "Sheet Metal Worker",
+            "Insulation Worker",
+            "Maintenance Worker",
+            "Pipefitter",
+            "Steelworker",
+            "Assembler"
         ];
     }
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Edit Profile</title>
-</head>
-<body>
-    <div class="container">
-        <h1>Edit Profile</h1>
-        <div class="updatebox">
+    <!DOCTYPE html>
+    <html>
 
-        <form method="POST" enctype="multipart/form-data">
-            <label for="img">Profile Picture:</label>
-            <input type="file" id="img" name="img"><br><br>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>Edit Profile</title>
+        <script>
+            // Function to show/hide worker fields
+            function toggleWorkerFields() {
+                var roleSelect = document.getElementById("role");
+                var workerFields = document.getElementById("worker-fields");
 
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($user_name); ?>" required><br><br>
+                if (roleSelect.value === "worker") {
+                    workerFields.style.display = "block"; // Show worker fields
+                } else {
+                    workerFields.style.display = "none"; // Hide worker fields
+                }
+            }
 
-            <label for="address">Address:</label>
-            <input type="text" id="address" name="address" value="<?php echo htmlspecialchars($user_address); ?>" required><br><br>
+            // Run this function when the page loads to set the correct state
+            window.onload = function() {
+                toggleWorkerFields(); // Ensure the correct fields are shown when the page loads
+            };
+        </script>
+    </head>
 
-            <label for="contact">Mobile Number:</label>
-            <input type="text" id="contact" name="contact" value="<?php echo htmlspecialchars($user_contact); ?>" required maxlength="10"><br><br>
+    <body>
+        <div class="container">
+            <h1>Edit Profile</h1>
+            <div class="updatebox">
 
-            <label for="role">Role:</label>
-            <select id="role" name="role" required>
-                <option value="user" <?php if ($user_role == 'user') echo 'selected'; ?>>User</option>
-                <option value="worker" <?php if ($user_role == 'worker') echo 'selected'; ?>>Worker</option>
-            </select><br><br>
+                <form method="POST" enctype="multipart/form-data">
+                    <label for="img">Profile Picture:</label>
+                    <input type="file" id="img" name="img"><br><br>
 
-            <?php if ($user_role == 'worker') : ?>
-                <label for="job">Job:</label>
-                <select id="job" name="job" required>
-                    <?php foreach ($blue_collar_jobs as $job) : ?>
-                        <option value="<?php echo htmlspecialchars($job); ?>" <?php if ($worker_job == $job) echo 'selected'; ?>><?php echo htmlspecialchars($job); ?></option>
-                    <?php endforeach; ?>
-                </select><br><br>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($user_name); ?>" required><br><br>
 
-                <label for="exp">Experience (in years):</label>
-                <input type="number" id="exp" name="exp" value="<?php echo htmlspecialchars($worker_exp); ?>" min="0"><br><br>
-            <?php endif; ?>
-            <input type="submit"  value="Update Profile">
-        </form>
-        <a href="profile.php">Back to Profile</a>
-    </div>
-</body>
-</html>
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address" value="<?php echo htmlspecialchars($user_address); ?>" required><br><br>
+
+                    <label for="contact">Mobile Number:</label>
+                    <input type="text" id="contact" name="contact" value="<?php echo htmlspecialchars($user_contact); ?>" required maxlength="10"><br><br>
+
+                    <label for="role">Role:</label>
+                    <select id="role" name="role" required onchange="toggleWorkerFields()">
+                        <option value="user" <?php if ($user_role == 'user') echo 'selected'; ?>>User</option>
+                        <option value="worker" <?php if ($user_role == 'worker') echo 'selected'; ?>>Worker</option>
+                    </select><br><br>
+
+                    <div id="worker-fields" style="display:none;">
+                        <label for="job">Job:</label>
+                        <select id="job" name="job" required>
+                            <?php foreach ($blue_collar_jobs as $job) : ?>
+                                <option value="<?php echo htmlspecialchars($job); ?>" <?php if ($worker_job == $job) echo 'selected'; ?>><?php echo htmlspecialchars($job); ?></option>
+                            <?php endforeach; ?>
+                        </select><br><br>
+
+                        <label for="exp">Experience (in years):</label>
+                        <input type="number" id="exp" name="exp" value="<?php echo htmlspecialchars($worker_exp); ?>" min="0"><br><br>
+                        <br>
+                        <label for="exp">Wage (in Hours):</label>
+                        <input type="number" id="exp" name="rate" value="<?php echo htmlspecialchars($hour_rate); ?>" min="0"><br><br>
+
+
+                    </div>
+
+                    <input type="submit" value="Update Profile">
+                </form>
+                <a href="profile.php">Back to Profile</a>
+            </div>
+    </body>
+
+    </html>
+
 <?php
 } else {
     echo "<script>alert('User not found!'); window.location.href = 'login.php';</script>";
@@ -109,6 +154,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $new_role = mysqli_real_escape_string($conn, $_POST['role']);
     $new_job = isset($_POST['job']) ? mysqli_real_escape_string($conn, $_POST['job']) : null;
     $new_exp = isset($_POST['exp']) ? mysqli_real_escape_string($conn, $_POST['exp']) : null;
+    $new_hour_rate = isset($_POST['rate']) ? mysqli_real_escape_string($conn, $_POST['rate']) : null;
 
     if (isset($_FILES['img']) && $_FILES['img']['error'] === 0) {
         $img_name = $_FILES['img']['name'];
@@ -155,7 +201,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = mysqli_query($conn, $update_sql);
 
     if ($new_role == "worker") {
-        $update_worker_sql = "UPDATE worker_tab SET worker_job_field = '$new_job', worker_experience = '$new_exp' WHERE user_id = '$user_id'";
+
+        $update_worker_sql = "INSERT INTO `log_tab`(`worker_id`, `old_job`, `new_job`) VALUES ('$user_id','$worker_job','$new_job')";
+        mysqli_query($conn, $update_worker_sql);
+        $update_worker_sql = "UPDATE worker_tab SET worker_job_field = '$new_job', worker_experience = '$new_exp', hour_rate='$new_hour_rate' WHERE user_id = '$user_id'";
         $result_worker = mysqli_query($conn, $update_worker_sql);
     }
 

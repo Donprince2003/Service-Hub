@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
       $update_sql = "UPDATE user_tab SET user_status = 1 WHERE user_id = '$username'";
       $result = mysqli_query($conn, $update_sql);
 
-      header("Location: profile.php");
+      header("Location: home.php");
     } else {
       echo "<script>alert('wrong password!');</script>";
     }
@@ -59,11 +59,11 @@ if (isset($_POST['submit'])) {
                 <input type="text" placeholder="Email" name="name" required>
                 <input type="password" placeholder="Password" name="password" required>
         </div>
-
         <input type="submit" name="submit" value="Login">
         </form>
         <div>
-            <p>If you have not Registered <a href="reg.php">click here.</a></p>.
+            <p>If you have not Registered <a href="register.php">click here.</a><br>
+            If you have forgot your password <a href="s-check.php">click here.</a></p>.
         </div>
     </div>
 </body>

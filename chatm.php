@@ -124,6 +124,11 @@ $result = $stmt->get_result();
 
         // Fetch messages every 0.5 seconds
         setInterval(fetchMessages, 500);
+
+        $(document).ready(function () {
+            var chatDiv = document.getElementById("chat-container");
+            chatDiv.scrollTop = chatDiv.scrollHeight;
+        });
     </script>
 </body>
 <?php
