@@ -34,13 +34,44 @@ if ($result && mysqli_num_rows($result) > 0) {
         }
     }
 
-    if ($user_role == "worker") {
-        $sql = "SELECT * FROM worker_tab WHERE user_id = '$user_id'";
-        $res = mysqli_query($conn, $sql);
+    $sql = "SELECT * FROM worker_tab WHERE user_id = '$user_id'";
+    $res = mysqli_query($conn, $sql);
+    
+    if ($res && mysqli_num_rows($res) > 0) {
         $worker_data = mysqli_fetch_assoc($res);
+    
+
         $worker_job = $worker_data['worker_job_field'];
         $worker_exp = $worker_data['worker_experience'];
         $hour_rate = $worker_data['hour_rate'];
+
+        $blue_collar_jobs = [
+            "Electrician",
+            "Plumber",
+            "Carpenter",
+            "Welder",
+            "Mechanic",
+            "Construction Worker",
+            "Truck Driver",
+            "Painter",
+            "Mason",
+            "HVAC Technician",
+            "Landscaper",
+            "Roofer",
+            "Glazier",
+            "Pest Control Worker",
+            "Sheet Metal Worker",
+            "Insulation Worker",
+            "Maintenance Worker",
+            "Pipefitter",
+            "Steelworker",
+            "Assembler"
+        ];
+    }
+    else{
+        $worker_job = null;
+        $worker_exp =null;
+        $hour_rate =null;
 
         $blue_collar_jobs = [
             "Electrician",
