@@ -12,8 +12,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && isset($_P
     $job_worker = $_POST['worker_id'];
     $job_id = $_POST['job_id'];
     $job_user = $_POST['job_user'];
-    
-
 } else {
     echo "No data found";
     exit();
@@ -86,6 +84,7 @@ $_SESSION['job_id'] = $job_id;
         <h1>Select payment method</h1>
         <form action="check.php" method="POST" class="item-actions">
             <?php
+            echo "<input type='hidden' name='cost' value='$total_cost'>";
             echo "<input type='hidden' name='job_id' value='$job_id'>";
             echo "<input type='hidden' name='worker_id' value='$job_worker'>";
             echo "<input type='hidden' name='job_user' value='$job_user'>";

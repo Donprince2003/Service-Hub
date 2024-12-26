@@ -54,7 +54,8 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                 echo "<input type='hidden' name='job_user' value='$job_user'>";
                 echo "<button class='yellowbutton' type='submit' name='action' value='confirm'>Start Job</button>";
                 echo "</form>";
-            } elseif ($row['job_status'] == 1 && $row['requst'] == 1) {
+            }            
+            elseif ($row['job_status'] == 1 && $row['requst'] == 1) {
                 echo "<div class='paywaiting-box'>Waiting for conformation</div>";
             } elseif ($row['job_status'] == 1 && $row['requst'] == 2) {
                 echo "<div class='accepted-box'>Job Started</div>";
@@ -80,12 +81,21 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                 echo "<button class='yellowbutton' type='submit' name='action' value='confirm'>Click here if you have received the payment Payment </button>";
                 echo "</form>";
             }
+
+            elseif ($row['requst'] == 4) {
+                echo "<form action='worker_rating.php' method='POST' class='item-actions'>";
+                echo "<input type='hidden' name='job_id' value='$job_id'>";
+                echo "<input type='hidden' name='worker_id' value='$worker_id'>";
+                echo "<input type='hidden' name='job_user' value='$job_user'>";
+                echo "<button class='jobdone-box' type='submit' name='action' value='confirm'>job completed,<br>Rate now</button>";
+                echo "</form>";
+            }
             elseif ($row['job_status'] == 2) {
                 echo "<div class='jobdone-box'>Job Completed</div>";
 
                 echo "<div class='waiting-box'>Waiting for payment</div>";
             } 
-            elseif ($row['job_status'] == 4) {
+            elseif ($row['requst'] == 5) {
                 echo "<div class='jobdone-box'>Job Completed</div>";
             } elseif ($row['job_status'] == 3) {
                 echo "<form action='request2.php' method='POST' class='item-actions'>";
@@ -114,6 +124,8 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
 <head>
     <?php
     include("index.php");
+    include("chatbutton.php");
+
 
     ?>
     <meta charset="UTF-8">

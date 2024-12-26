@@ -30,7 +30,7 @@ $job_id = $_SESSION['job_id'];
 
 
 
- $accept_query = "UPDATE `job_tab` SET `job_status`='4', job_pay_status=1 WHERE job_id='$job_id' AND job_worker='$worker_id'";
+ $accept_query = "UPDATE `job_tab` SET `job_status`= 4, `requst`= 4, job_pay_status=1 WHERE job_id='$job_id'";
  $update = mysqli_query($conn, $accept_query);
  if ($update) {
  }

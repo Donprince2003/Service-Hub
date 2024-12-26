@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && isset($_P
 
         $message= "Yes, you can stop the job right now.";
 
-        $sql = "INSERT INTO chat_tab (sender, receiver, message) VALUES ('$worker_id','$job_user', '$message')";
+        $sql = "INSERT INTO chat_tab (sender, receiver, message) VALUES ('$job_user', '$worker_id','$message')";
         mysqli_query($conn, $sql);
 
         $accept_query = "UPDATE job_tab SET requst=3 ,job_status=2, job_end=CURRENT_TIME() WHERE job_id='$job_id' AND job_worker='$worker_id'";

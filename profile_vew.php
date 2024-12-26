@@ -2,6 +2,8 @@
 session_start();
 include("conn.php");
 include("index.php");
+include("chatbutton.php");
+
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");

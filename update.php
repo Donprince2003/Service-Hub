@@ -196,7 +196,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
     }
-
+    $_SESSION['user_role'] = $new_role;
     $update_sql = "UPDATE user_tab SET user_name = '$new_name', user_address = '$new_address', user_contact = '$new_contact', user_role = '$new_role' WHERE user_id = '$user_id'";
     $result = mysqli_query($conn, $update_sql);
 

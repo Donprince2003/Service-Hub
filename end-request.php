@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && isset($_P
     $action = $_POST['action'];
     $job_user = $_POST['job_user'];
 
-        $message= "Can I stop the job right now?";
+        $message= "The job have completed";
 
         $sql = "INSERT INTO chat_tab (sender, receiver, message) VALUES ('$worker_id','$job_user', '$message')";
         mysqli_query($conn, $sql);

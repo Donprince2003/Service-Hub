@@ -39,6 +39,12 @@ if ($user_role == "user") {
 
     <head>
         <title>Profile</title>
+        <style>
+        .checked {
+            color: orange;
+        }
+    </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
 
@@ -55,6 +61,22 @@ if ($user_role == "user") {
                 Mobile: <?php echo htmlspecialchars($user_contact); ?> <br>
                 Gender: <?php echo htmlspecialchars($user_gender); ?> <br>
                 Role: <?php echo htmlspecialchars($user_role); ?> <br>
+                <p>
+                <?php
+
+                $roundedRating = round($user_rating);
+
+                for ($i = 1; $i <= 5; $i++) {
+                    if ($i <= $roundedRating) {
+                        echo "<span class='fa fa-star checked'></span>";
+                    } else {
+                        echo "<span class='fa fa-star'></span>";
+                    }
+                }
+
+
+                echo htmlspecialchars(number_format($user_rating, 1)); ?>/5
+            </p>
 
             </p>
             <div>
@@ -125,6 +147,12 @@ if ($user_role == "user") {
 
     <head>
         <title>Profile</title>
+        <style>
+        .checked {
+            color: orange;
+        }
+    </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
 
@@ -144,6 +172,22 @@ if ($user_role == "user") {
                 Job: <?php echo htmlspecialchars($worker_job); ?> <br>
                 Work Experience: <?php echo htmlspecialchars($worker_exp); ?> years <br>
                 Hourly rate: <?php echo htmlspecialchars($hour_rate); ?> .Rs <br>
+            <p>
+                <?php
+
+                $roundedRating = round($user_rating);
+
+                for ($i = 1; $i <= 5; $i++) {
+                    if ($i <= $roundedRating) {
+                        echo "<span class='fa fa-star checked'></span>";
+                    } else {
+                        echo "<span class='fa fa-star'></span>";
+                    }
+                }
+
+
+                echo htmlspecialchars(number_format($user_rating, 1)); ?>/5
+            </p>
 
             </p>
             <div>

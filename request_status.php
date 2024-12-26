@@ -55,24 +55,51 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                 echo "<button class='greenbutton' type='submit' name='action' value='confirm'>Worker ready for work, <br>Start work now</button>";
                 echo "</form>";
             }
+            elseif ($row['job_status'] == 5) {
+                echo "<div class='jobdone-box'>Job Completed</div>";
+            }
+
+            elseif ($row['job_status'] == 4) {
+                echo "<form action='user_rating.php' method='POST' class='item-actions'>";
+                echo "<input type='hidden' name='job_id' value='$job_id'>";
+                echo "<input type='hidden' name='worker_id' value='$job_worker'>";
+                echo "<input type='hidden' name='job_user' value='$user_id'>";
+                echo "<button class='jobdone-box' type='submit' name='action' value='confirm'>job completed,<br>Rate now</button>";
+                echo "</form>";
+            } 
+
             elseif ($row['job_status'] == 2 && $row['requst'] == 4) {
                 echo "<div class='paywaiting-box'>Waiting for conformation</div>";
             } 
+            
+            
             elseif ($row['job_status'] == 1 && $row['requst'] == 0) {
                 echo "<div class='accepted-box'>Job accepted</div>";
-            } elseif ($row['job_status'] == 1 && $row['requst'] == 2) {
+            } 
+            
+            
+            elseif ($row['job_status'] == 1 && $row['requst'] == 2) {
 
                 echo "<div class='accepted-box'>Job Started</div>";
-            } elseif ($row['job_status'] == 0) {
+            } 
+            
+            
+            elseif ($row['job_status'] == 0) {
                 echo "<div class='declined-box'>Job declined</div>";
-            } elseif ($row['job_status'] == 1 && $row['requst'] == 3) {
+            } 
+            
+            
+            elseif ($row['job_status'] == 1 && $row['requst'] == 3) {
                 echo "<form action='end-pesmission.php' method='POST' class='item-actions'>";
                 echo "<input type='hidden' name='job_id' value='$job_id'>";
                 echo "<input type='hidden' name='worker_id' value='$job_worker'>";
                 echo "<input type='hidden' name='job_user' value='$user_id'>";
                 echo "<button class='yellowbutton' type='submit' name='action' value='confirm'>job completed,<br>Conform now</button>";
                 echo "</form>";
-            } elseif ($row['job_status'] == 2) {
+            } 
+            
+            
+            elseif ($row['job_status'] == 2) {
                 echo "<div class='jobdone-box'>Job Completed</div>";
                 echo "<form action='payinvoice.php' method='POST' class='item-actions'>";
                 echo "<input type='hidden' name='job_id' value='$job_id'>";
@@ -80,9 +107,10 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                 echo "<input type='hidden' name='job_user' value='$user_id'>";
                 echo "<button class='yellowbutton' type='submit' name='action' value='confirm'>Pay now</button>";
                 echo "</form>";
-            } elseif ($row['job_status'] == 4) {
-                echo "<div class='jobdone-box'>Job Completed</div>";
-            } elseif ($row['job_status'] == 3) {
+            } 
+            
+            
+            elseif ($row['job_status'] == 3) {
                 echo "<div class='waiting-box'>Waiting Response</div>";
             }
             echo "</div>"; // Close inner div
