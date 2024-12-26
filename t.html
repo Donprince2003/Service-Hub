@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .checked {
+            color: orange;
+        }
+    </style>
+    <title>Profile Page</title>
+</head>
+<div class="container">
+    <div class="centerbox">
+
+        <form method="POST" action="add_job.php">
+            <label for="job_date">Job Date:</label>
+            <input type="date" id="job_date" name="job_date" required min="<?php echo $today; ?>"><br><br>
+
+            <label for="job_work">Job Description:</label>
+            <textarea id="job_work" name="job_work" required></textarea>
+
+            <input type="hidden" name="user_worker_id" value="<?php echo $user_worker_id; ?>">
+            <input type="hidden" name="user_id" value="<?php echo $user_id; ?>"><br><br>
+
+            <input type="submit" name="submit" value="Submit Job Request">
+        </form>
+    </div>
+
+</div>
+<div class="commentcontainer">
+    <div class="topbar">
+       <div>user name</div>
+       <div>date</div>
+    </div>
+    <div class="commentbox">
+        test1
+    </div> 
+</div>
+<div class="commentcontainer">
+    <div class="topbar">
+       <div>user name</div>
+       <div>date</div>
+    </div>
+    <div class="commentbox">
+        test1
+    </div> 
+</div>
+<div class="commentcontainer">
+    <div class="topbar">
+       <div>user name</div>
+       <div>date</div>
+    </div>
+    <div class="commentbox">
+        test1
+    </div> 
+</div>
+<div class="commentcontainer">
+    <div class="topbar">
+       <div>user name</div>
+       <div>date</div>
+    </div>
+    <div class="commentbox">
+        test1
+    </div> 
+</div>
+</body>
+
+</html>

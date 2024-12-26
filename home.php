@@ -3,7 +3,10 @@ session_start();
 include("conn.php");
 include("index.php");
 include("chatbutton.php");
-
+$user_id = 'ooo';
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+}
 
 $sql = "SELECT u.user_name, u.user_address, u.user_contact, u.user_rating, w.worker_id, w.user_id, w.worker_job_field, w.worker_experience, w.worker_status, w.hour_rate, p.img_id 
         FROM user_tab u 
@@ -33,7 +36,7 @@ $img_path = "image/d.png";
     <div class="homecontainer">
         <?php if ($result && mysqli_num_rows($result) > 0) : ?>
             <?php while ($worker = mysqli_fetch_assoc($result)) :
-                if ($worker['worker_status'] == 1) {
+                if ($worker['worker_status'] == 1 && $worker['user_id']!=$user_id) {
                     $img_path = ($worker['img_id'] && $worker['img_id'] != "d.png") ? "image/" . $worker['img_id'] : "image/d.png";
             ?>
                     <div class="homebox">

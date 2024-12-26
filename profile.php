@@ -88,6 +88,72 @@ if ($user_role == "user") {
 
         </div>
 
+
+
+
+
+        <div class="topbar" style="display: flex;
+        justify-content: center;
+        align-items: center;">
+                    <h1>Rating</h1>
+                </div>
+                <?php
+                $sql = "SELECT * FROM job_tab WHERE job_user = '$user_id'";
+                $result = mysqli_query($conn, $sql);
+
+                if ($result && mysqli_num_rows($result) > 0) :
+                    while ($job = mysqli_fetch_assoc($result)) :
+                        if ($job['requst'] == 5 && $job['job_status'] == 5) {
+                ?>
+                            <div class="commentcontainer">
+                                <div class="topbar">
+                                    <div>
+                                        <p>
+                                            <?php
+
+                                            $roundedRating = round($job['job_user_rating']);
+
+                                            for ($i = 1; $i <= 5; $i++) {
+                                                if ($i <= $roundedRating) {
+                                                    echo "<span class='fa fa-star checked'></span>";
+                                                } else {
+                                                    echo "<span class='fa fa-star'></span>";
+                                                }
+                                            }
+
+
+                                            echo htmlspecialchars(number_format($job['job_user_rating'], 1)); ?>/5
+                                        </p>
+                                    </div>
+                                    <div>username: <?php echo htmlspecialchars($job['job_user']); ?></div>
+
+                                </div>
+                                <div class="commentbox">
+                                    <?php echo htmlspecialchars($job['job_user_rev']); ?>
+                                    <br>
+                                    <br>
+                                    <div class="date">
+                                        <strong>Date:</strong> <?php echo htmlspecialchars($job['job_date']); ?>
+                                    </div>
+                                </div>
+                            </div>
+                    <?php
+                        }
+                    endwhile; ?>
+                <?php else : ?>
+                    <div class="commentcontainer">
+                        <div class="topbar" style="display: flex;
+        justify-content: center;
+        align-items: center;">
+                            <p>No Rating found.</p>
+                        </div>
+                    </div>
+                <?php endif; ?>
+
+
+
+
+
     </body>
 
     </html>
@@ -198,6 +264,66 @@ if ($user_role == "user") {
             </div>
 
         </div>
+
+
+        <div class="topbar" style="display: flex;
+        justify-content: center;
+        align-items: center;">
+                    <h1>Rating</h1>
+                </div>
+                <?php
+                $sql = "SELECT * FROM job_tab WHERE job_worker = '$user_id'";
+                $result = mysqli_query($conn, $sql);
+
+                if ($result && mysqli_num_rows($result) > 0) :
+                    while ($job = mysqli_fetch_assoc($result)) :
+                        if ($job['requst'] == 5 && $job['job_status'] == 5) {
+                ?>
+                            <div class="commentcontainer">
+                                <div class="topbar">
+                                    <div>
+                                        <p>
+                                            <?php
+
+                                            $roundedRating = round($job['job_user_rating']);
+
+                                            for ($i = 1; $i <= 5; $i++) {
+                                                if ($i <= $roundedRating) {
+                                                    echo "<span class='fa fa-star checked'></span>";
+                                                } else {
+                                                    echo "<span class='fa fa-star'></span>";
+                                                }
+                                            }
+
+
+                                            echo htmlspecialchars(number_format($job['job_user_rating'], 1)); ?>/5
+                                        </p>
+                                    </div>
+                                    <div>username: <?php echo htmlspecialchars($job['job_user']); ?></div>
+
+                                </div>
+                                <div class="commentbox">
+                                    <?php echo htmlspecialchars($job['job_user_rev']); ?>
+                                    <br>
+                                    <br>
+                                    <div class="date">
+                                        <strong>Date:</strong> <?php echo htmlspecialchars($job['job_date']); ?>
+                                    </div>
+                                </div>
+                            </div>
+                    <?php
+                        }
+                    endwhile; ?>
+                <?php else : ?>
+                    <div class="commentcontainer">
+                        <div class="topbar" style="display: flex;
+        justify-content: center;
+        align-items: center;">
+                            <p>No Rating found.</p>
+                        </div>
+                    </div>
+                <?php endif; ?>
+
 
     </body>
 

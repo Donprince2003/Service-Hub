@@ -18,6 +18,50 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+.commentbox {
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    margin: 10px auto;
+    padding: 10px;
+    position: relative;
+
+
+
+}
+
+.commentcontainer {
+
+    width: 800px;
+    margin: 10px auto;
+    padding: 2px;
+    background-color: #fdfbe1;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.topbar {
+
+    color: #ffffff;
+    background-color: #023E8A;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 180px 0px 0px;
+    align-items: start;
+    justify-content: space-between;
+    border-radius: 8px;
+    gap: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+
+.date {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 14px; /* Adjust font size as needed */
+}
+
 
 
 .homecontainer {
@@ -51,7 +95,7 @@ body {
     box-shadow: 0 4px 12px rgba(10, 10, 1, 10);
 }
 
-.log{
+.log {
     width: 500px;
     margin: 100px auto;
     padding: 2px;
@@ -105,9 +149,9 @@ body {
     color: rgb(0, 0, 0);
     border-radius: 7px;
     height: 35px;
-    display: flex;             
-    justify-content: center;     
-    align-items: center;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -116,9 +160,9 @@ body {
     color: white;
     border-radius: 7px;
     height: 35px;
-    display: flex;             
-    justify-content: center;     
-    align-items: center;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 
 }
@@ -128,9 +172,9 @@ body {
     color: black;
     border-radius: 7px;
     height: 35px;
-    display: flex;             
-    justify-content: center;     
-    align-items: center;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .paywaiting-box {
@@ -138,30 +182,31 @@ body {
     color: black;
     border-radius: 7px;
     height: 35px;
-    display: flex;             
-    justify-content: center;     
-    align-items: center;  
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
-.waiting-box{
+
+.waiting-box {
     background-color: #ff8c00;
     color: black;
     border-radius: 7px;
     height: 35px;
-    display: flex;             
-    justify-content: center;     
-    align-items: center;  
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
-.jobdone-box{
+.jobdone-box {
     background-color: #b700cf;
     color: white;
     border-radius: 7px;
     height: 35px;
-    display: flex;             
-    justify-content: center;     
-    align-items: center;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 img {
@@ -179,6 +224,7 @@ img {
     border-radius: 50%;
     border: 3px solid #2a6f97;
 }
+
 .submit,
 input[type="submit"] {
     width: 100%;
@@ -266,6 +312,7 @@ button,
     background-color: #f0005c;
 
 }
+
 .yellowbutton:hover {
     background-color: #f8ed87;
 
