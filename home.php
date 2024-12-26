@@ -125,7 +125,7 @@ $img_path = "image/d.png";
                 }
             endwhile;
         else :
-            echo "<p>No match found.</p>";
+            echo "No match found.";
         endif;
     } else {
         // Default display of workers when no search is performed
