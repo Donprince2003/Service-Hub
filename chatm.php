@@ -1,4 +1,5 @@
 <?php
+ob_start(); // Start output buffering
 session_start();
 include("conn.php");
 
@@ -148,6 +149,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
     header("Location: chatm.php?receiver=" . urlencode($receiver));
     exit();
 }
+
+ob_end_flush(); // Flush the output buffer
 ?>
 
 </html>
