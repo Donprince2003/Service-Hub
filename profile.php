@@ -111,7 +111,7 @@ if ($user_role == "user") {
                                         <p>
                                             <?php
 
-                                            $roundedRating = round($job['job_user_rating']);
+                                            $roundedRating = round($job['job_worker_rating']);
 
                                             for ($i = 1; $i <= 5; $i++) {
                                                 if ($i <= $roundedRating) {
@@ -122,14 +122,14 @@ if ($user_role == "user") {
                                             }
 
 
-                                            echo htmlspecialchars(number_format($job['job_user_rating'], 1)); ?>/5
+                                            echo htmlspecialchars(number_format($job['job_worker_rating'], 1)); ?>/5
                                         </p>
                                     </div>
-                                    <div>username: <?php echo htmlspecialchars($job['job_user']); ?></div>
+                                    <div>username: <?php echo htmlspecialchars($job['job_worker']); ?></div>
 
                                 </div>
                                 <div class="commentbox">
-                                    <?php echo htmlspecialchars($job['job_user_rev']); ?>
+                                    <?php echo htmlspecialchars($job['job_worker_rev']); ?>
                                     <br>
                                     <br>
                                     <div class="date">
