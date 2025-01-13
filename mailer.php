@@ -15,8 +15,8 @@ $mail->SMTPAuth = true;
 
 $mail->Host = "smtp.gmail.com";
 $mail->Port = 587;
-$mail->Username = "servicehub343@gmail.com";
-$mail->Password = "czzx vdln tpfu keoq";
+$mail->Username = "syour email";
+$mail->Password = "your password";
 
 $mail->isHtml(true);
 
