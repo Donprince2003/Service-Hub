@@ -1,3 +1,62 @@
+<?php
+include('conn.php');
+
+$user_id = $_SESSION['user_id'] ?? null;
+$user_role = $_SESSION['user_role'] ?? null;
+
+$nav_links = [
+    'guest' => [
+        ['href' => 'reg.php', 'label' => 'Registration'],
+        ['href' => 'login.php', 'label' => 'Login']
+    ],
+    'worker' => [
+        ['href' => 'profile.php', 'label' => 'Profile'],
+        ['href' => 'logout.php', 'label' => 'Logout'],
+        [
+            'label' => 'Request',
+            'dropdown' => [
+                ['href' => 'request.php', 'label' => 'Job Request'],
+                ['href' => 'request_status.php', 'label' => 'Request Status']
+            ]
+        ]
+    ],
+    'user' => [
+        ['href' => 'profile.php', 'label' => 'Profile'],
+        ['href' => 'logout.php', 'label' => 'Logout'],
+        ['href' => 'request_status.php', 'label' => 'Request Status']
+    ],
+    'admin' => [
+        ['href' => 'profile.php', 'label' => 'Profile'],
+        ['href' => 'logout.php', 'label' => 'Logout'],
+        [
+            'label' => 'Request',
+            'dropdown' => [
+                ['href' => 'workermanage.php', 'label' => 'Worker Request'],
+                ['href' => 'request_status.php', 'label' => 'Request Status'],
+                ['href' => 'manage_user.php', 'label' => 'Manage User']
+            ]
+        ]
+    ]
+];
+
+if ($user_id !== null) { // Check if user_id is not null
+    $sql = "SELECT user_status FROM user_tab WHERE user_id='$user_id'";
+    $result = mysqli_query($conn, $sql);
+
+    if ($result && mysqli_num_rows($result) > 0) { // Check if query executed and returned rows
+        $user_data = mysqli_fetch_assoc($result);
+
+        if ($user_data['user_status'] == 1) { // User is blocked
+            header("Location: http://localhost/mini2/block.php");
+            exit();
+        }
+    }
+}
+
+$role = $user_id ? $user_role : 'guest';
+$links = $nav_links[$role];
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -38,49 +97,6 @@
 </head>
 
 <body>
-    <?php
-    include('conn.php');
-    $user_id = $_SESSION['user_id'] ?? null;
-    $user_role = $_SESSION['user_role'] ?? null;
-
-    $nav_links = [
-        'guest' => [
-            ['href' => 'reg.php', 'label' => 'Registration'],
-            ['href' => 'login.php', 'label' => 'Login']
-        ],
-        'worker' => [
-            ['href' => 'profile.php', 'label' => 'Profile'],
-            ['href' => 'logout.php', 'label' => 'Logout'],
-            [
-                'label' => 'Request',
-                'dropdown' => [
-                    ['href' => 'request.php', 'label' => 'Job Request'],
-                    ['href' => 'request_status.php', 'label' => 'Request Status']
-                ]
-            ]
-        ],
-        'user' => [
-            ['href' => 'profile.php', 'label' => 'Profile'],
-            ['href' => 'logout.php', 'label' => 'Logout'],
-            ['href' => 'request_status.php', 'label' => 'Request Status']
-        ],
-        'admin' => [
-            ['href' => 'profile.php', 'label' => 'Profile'],
-            ['href' => 'logout.php', 'label' => 'Logout'],
-            [
-                'label' => 'Request',
-                'dropdown' => [
-                    ['href' => 'workermanage.php', 'label' => 'Worker Request'],
-                    ['href' => 'request_status.php', 'label' => 'Request Status'],
-                    ['href' => 'manage_user.php', 'label' => 'Manage User']
-                ]
-            ]
-        ]
-    ];
-
-    $role = $user_id ? $user_role : 'guest';
-    $links = $nav_links[$role];
-    ?>
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container-fluid">
             <a class="navbar-brand" href="home.php">Service Hub</a>
@@ -97,7 +113,7 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <?php foreach ($link['dropdown'] as $dropdown): ?>
-                                        <li><a class="nav-link" href="<?= htmlspecialchars($dropdown['href']) ?>"><?= htmlspecialchars($dropdown['label']) ?></a></li>
+                                        <li><a class="dropdown-item" href="<?= htmlspecialchars($dropdown['href']) ?>"><?= htmlspecialchars($dropdown['label']) ?></a></li>
                                     <?php endforeach; ?>
                                 </ul>
                             </li>
