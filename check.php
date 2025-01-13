@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && isset($_P
 }
 
 require_once 'C:\wamp64\www\mini2\stripe-php-master\stripe-php-master\init.php'; // Make sure this path is correct
-$stripe_secret_key = "sk_test_tR3PYbcVNZZ796tH88S4VQ2u"; 
+$stripe_secret_key = "your api key"; 
 
 \Stripe\Stripe::setApiKey($stripe_secret_key);
 
